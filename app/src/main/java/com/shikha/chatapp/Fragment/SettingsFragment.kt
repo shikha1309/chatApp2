@@ -95,7 +95,7 @@ class SettingsFragment : Fragment() {
     }
 
     private fun setImage() {
-        //  we open mobile phone Gallery and  choose an Image // Fn or this we used a intent
+        //   open mobile phone Gallery and  choose an Image //     used a intent
         val intent = Intent()
         intent.type = "image/*"
         intent.action = Intent.ACTION_PICK
@@ -108,7 +108,7 @@ class SettingsFragment : Fragment() {
             // data .data will pass an image in ImageUri
             imageUri = data.data
             Toast.makeText(context, "uploading......", Toast.LENGTH_LONG).show()
-            // this function will upload Image in the firebase Storage
+            // will upload Image in the firebase Storage
             uploadImageToDatabase()
 
 
@@ -121,7 +121,7 @@ class SettingsFragment : Fragment() {
         progressBar.show()
 
         if (imageUri != null) {
-            // at time of uploading we will create a unique Key
+            // at time of uploading , will create a unique Key
             // for this use system.current time
 
 
