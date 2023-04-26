@@ -1,7 +1,10 @@
 package com.shikha.chatapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
@@ -58,7 +61,7 @@ class  MainActivity : AppCompatActivity() {
             override fun onDataChange(p0: DataSnapshot) {
                 val user:Users? = p0.getValue(Users ::class.java)
                 user_name.text =user!!.getUserName()
-                Picasso.get().load(user.getProfile()).into(profileImage)
+                Picasso.get().load(user.getProfile()).placeholder(R.drawable.person).into(profileImage)
 
             }
 
@@ -68,6 +71,31 @@ class  MainActivity : AppCompatActivity() {
 
 
         })
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu ,,,, will adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.menu_main ,menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.logout_main ->
+            {
+                FirebaseAuth.getInstance().signOut()
+                val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+                finish()
+
+                return true
+            }
+
+        }
+
+        return false
 
     }
 

@@ -18,7 +18,7 @@ import de.hdodenhof.circleimageview.CircleImageView
 // Note-- I have to retrieve the users form the database and store it in a list and pass that list to the User Adapter
 // There will be parameter to this class // First is context // Second will be list that is model list // third will be chat check
 
-class UserAdapter(
+class  UserAdapter(
     mContext: Context,
     mUsers: List<Users>, // This list will pass to the adapter class
     isChatCheck:Boolean
@@ -49,8 +49,9 @@ class UserAdapter(
     override fun onBindViewHolder(holder: ViewHolder, i: Int) {
         // data which will Display
         val  user:Users =mUsers[i]
-       holder.userNameTxt.text= user!!.getUserName()
+        holder.userNameTxt.text= user!!.getUserName()
         Picasso.get().load(user.getProfile()).placeholder(R.drawable.person).into(holder.profileImageView)
+
 
         holder.itemView.setOnClickListener {
             val options = arrayOf<CharSequence>(
@@ -65,14 +66,16 @@ class UserAdapter(
                     // This will open Chat Activity
                     // visit id = that person that i will click
 
-
                     val intent = Intent(mContext ,MessageChatActivity::class.java)
                     intent.putExtra("visit_id" , user.getUID())
-                    mContext.startActivity(intent   )
+                    mContext.startActivity(intent)
                 }
+                if( which==1){
 
 
+                }
             })
+            builder.show()
 
 
         }

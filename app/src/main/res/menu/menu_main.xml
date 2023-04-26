@@ -3,13 +3,15 @@
  <item
      android:id="@+id/logout_main"
      android:title="Log Out"
-     android:orderInCategory="50">
+     android:orderInCategory="50"
+     android:icon="@drawable/logout">
 
  </item>
 
     <item
-        android:id="@+id/favouritesMain"
-        android:title="Favourites">
+        android:id="@+id/favourites_main"
+        android:title="Favourites"
+        android:icon="@drawable/favourites">
 
     </item>
 </menu>
