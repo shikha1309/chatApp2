@@ -15,11 +15,11 @@ class Users  {
     // this is the default constructor with no parameter
     constructor()
 
-      // This is the constructor  with No parameter
+      // This is the constructor  with   parameter
      constructor(
         uid: String,
         username: String,
-        profile: String,
+          profile: String,
         cover: String,
         status: String,
         search: String,
