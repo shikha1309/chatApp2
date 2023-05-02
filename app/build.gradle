@@ -34,7 +34,7 @@ android {
     }
 
     buildFeatures{
-         viewBinding = true
+         viewBinding true
     }
 
                 kotlinOptions {
@@ -50,7 +50,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.9.0-alpha01'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.3'
-    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
+    implementation 'com.google.firebase:firebase-database-ktx:20.2.0'
     implementation 'com.google.firebase:firebase-storage-ktx:20.1.0'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.1.1'
     testImplementation 'junit:junit:4.13.2'

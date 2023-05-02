@@ -87,10 +87,10 @@ class ChatsAdapter  (
           {
               holder.text_seen!!.text= "Seen"
               if(chat.getMessage().equals("send you an Image .") && !chat.getUrl().equals(""))
-              {
-                  val layoutParams : RelativeLayout.LayoutParams? = holder.text_seen!!.layoutParams as RelativeLayout.LayoutParams
-                  layoutParams !!.setMargins(0,245,10,0)
-                  holder.text_seen !!.layoutParams = layoutParams
+              {   // lp== layout Params
+                  val lp : RelativeLayout.LayoutParams? = holder.text_seen!!.layoutParams as RelativeLayout.LayoutParams
+                  lp !!.setMargins(0,245,10,0)
+                  holder.text_seen !!.layoutParams = lp
               }
           }
             else
@@ -98,9 +98,9 @@ class ChatsAdapter  (
                 holder.text_seen!!.text= "Sent"
                 if(chat.getMessage().equals("send you an Image .") && !chat.getUrl().equals(""))
                 {
-                    val layoutParams : RelativeLayout.LayoutParams? = holder.text_seen!!.layoutParams as RelativeLayout.LayoutParams
-                    layoutParams !!.setMargins(0,245,10,0)
-                    holder.text_seen !!.layoutParams = layoutParams
+                    val lp : RelativeLayout.LayoutParams? = holder.text_seen!!.layoutParams as RelativeLayout.LayoutParams
+                    lp !!.setMargins(0,245,10,0)
+                    holder.text_seen !!.layoutParams = lp
                 }
             }
         }
@@ -134,7 +134,7 @@ class ChatsAdapter  (
     override fun getItemViewType(position: Int): Int {
          // 1 for sender 0 for receiver
         //position == layout position of left or Right
-        firebaseUser =FirebaseAuth.getInstance().currentUser!!
+
         return if (mChatList[position].getSender() .equals(firebaseUser!!.uid))
         {
            1

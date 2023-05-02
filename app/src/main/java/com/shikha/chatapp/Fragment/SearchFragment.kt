@@ -114,6 +114,7 @@ class SearchFragment : Fragment() {
 
          queryUsers .addValueEventListener(object:ValueEventListener {
              override fun onDataChange(p0: DataSnapshot) {
+
                  (mUsers as ArrayList<Users>).clear()
                  for(snapshot in p0.children)
                  {
