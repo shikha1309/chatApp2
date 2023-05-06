@@ -261,7 +261,7 @@ class   MessageChatActivity : AppCompatActivity() {
                      }
 
 
-                     chatsAdapter = ChatsAdapter(this@MessageChatActivity,  (mChatList as ArrayList<Chat>) ,
+                   val  chatsAdapter = ChatsAdapter(this@MessageChatActivity,  (mChatList as ArrayList<Chat>) ,
                          receiverImageUrl.toString())
                  recycler_view_chats.adapter = chatsAdapter
 
@@ -281,7 +281,7 @@ class   MessageChatActivity : AppCompatActivity() {
  private fun seenMessage(userId :String)
  {
    val reference  =   FirebaseDatabase.getInstance().reference.child("Chats")
-     seenListener = reference!!.addValueEventListener(object : ValueEventListener{
+     seenListener = reference.addValueEventListener(object : ValueEventListener{
          override fun onDataChange(p0: DataSnapshot)
          {
                for ( dataSnapshot in p0.children)
